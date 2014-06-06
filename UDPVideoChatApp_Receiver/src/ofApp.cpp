@@ -15,8 +15,9 @@ void ofApp::setup(){
     if(!videoTexture.isAllocated())
         cout << "Texture has not been allocated!!" << endl;
     
-    bool setReceiveBufferSize = udpConnection.SetReceiveBufferSize(200000);
-    if(udpConnection.GetReceiveBufferSize()!=200000)
+    int recvBuffSize = 200000;
+    bool setReceiveBufferSize = udpConnection.SetReceiveBufferSize(recvBuffSize);
+    if(udpConnection.GetReceiveBufferSize()!=recvBuffSize)
         cout << "Receive Buffer Size was not assigned!!" << endl;
     
     iSize = texWidth*texHeight*3;
@@ -38,12 +39,14 @@ void ofApp::update(){
     
     for(int i = 0; i < iSize; i+=rowWidth){
         vpIndex=0;
-        for(int j=i; j < i+rowWidth; j++){
-            udpConnection.Receive(udpVideoPacket, rowWidth);
+        udpConnection.Receive(udpVideoPacket, rowWidth);//receives one row of one frame
+        for(int j=i; j < i+rowWidth; j++){//writes one row of one frame to udpVideo
             udpVideo[j] = udpVideoPacket[vpIndex];
-            videoTexture.loadData(<#const unsigned char *const data#>, <#int w#>, <#int h#>, <#int glFormat#>)
+            vpIndex++;
         }
     }
+    
+    videoTexture.loadData((const unsigned char *)udpVideo, texWidth, texHeight, GL_RGB);
 }
 
 //--------------------------------------------------------------

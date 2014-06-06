@@ -7,8 +7,8 @@ void ofApp::setup(){
     udpConnection.Connect("10.120.91.147",11999);
     udpConnection.SetNonBlocking(true);
 
-    vidGrabber.width = 110;
-    vidGrabber.height = 90;
+    vidGrabber.width = 160;
+    vidGrabber.height = 120;
     //vidGrabber.setDesiredFrameRate(20);
     ofSetFrameRate(20); // Very IMPORANT. Without calling this function, there will be flickering on the receiver's side.
     //vidGrabber.setUseTexture(false); //gives better performance when this is set to false
