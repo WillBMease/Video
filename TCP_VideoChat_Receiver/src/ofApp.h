@@ -29,6 +29,8 @@ class ofApp : public ofBaseApp{
     
         int frameWidth;
         int frameHeight;
-        int frameSize;  
+        int frameSize;
+    
+        unsigned char *usc_recvdBytes;
     
 };
