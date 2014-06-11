@@ -29,9 +29,13 @@ class ofApp : public ofBaseApp{
     
         int camWidth;
         int camHeight;
-    
+        int frameSize;
+        
         unsigned char *ptrArrPixels;
+        
+        unsigned char *checkconstpixels;
     
+    ofxUDPManager udpConnection;
     
     
     
