@@ -16,7 +16,7 @@ void ofApp::setup(){
     
     bool connected = tcpClient.setup("10.120.21.246", 11999);
     
-    while (!connected) {
+   while (!connected) {
         connected = tcpClient.setup("10.120.21.246", 11999);
     }
 }
@@ -25,21 +25,38 @@ void ofApp::setup(){
 void ofApp::update(){
     
     char receivedBytes[frameSize];
+    int numReceivedBytes = 0;
+    int i=0;
     
     if (tcpClient.isConnected()) {
+        
+    do{
         tcpClient.receiveRawBytes(receivedBytes, frameSize);
-        cout << "No. of Recvd Bytes: " << tcpClient.getNumReceivedBytes() <<  endl;
-        ofSleepMillis(15);
+        ofSleepMillis(5);
+        numReceivedBytes = tcpClient.getNumReceivedBytes();
+        usc_recvdBytes = (unsigned char *)receivedBytes;
+        pixels.setFromPixels(usc_recvdBytes, frameWidth, frameHeight, 1);
+        vidFrame.setFromPixels(pixels);
+
+        if (numReceivedBytes<frameSize) {
+            for (i=0; i<frameSize; i++) {
+                receivedBytes[i] = '\0';
+            }
+        }
+    }while(numReceivedBytes<frameSize);
+        
+    cout << "No. of Recvd Bytes: " << numReceivedBytes <<  endl;
+        
     }
     
-    for (int i=0; i<frameSize; i++) {
-        usc_recvdBytes[i] = receivedBytes[i];
-    }
+  //  for (int i=0; i<frameSize; i++) {
+//    usc_recvdBytes = (unsigned char *)receivedBytes;
+    //}
     
-    pixels.setFromExternalPixels(usc_recvdBytes, frameWidth, frameHeight, 1);
-//    vidFrame.setFromPixels(usc_recvdBytes, frameWidth, frameHeight, OF_IMAGE_GRAYSCALE);
-    vidFrame.setFromPixels(pixels);
-    vidFrame.reloadTexture();
+//    pixels.setFromPixels(usc_recvdBytes, frameWidth, frameHeight, 1);
+//  vidFrame.setFromPixels(usc_recvdBytes, frameWidth, frameHeight, OF_IMAGE_GRAYSCALE);
+//    vidFrame.setFromPixels(pixels);
+//  vidFrame.reloadTexture();
 }
 
 //--------------------------------------------------------------
