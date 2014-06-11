@@ -6,8 +6,8 @@ void ofApp::setup(){
     ofSetVerticalSync(true);
     ofSetFrameRate(20);
     
-    vidGrabber.width = 320;
-    vidGrabber.height = 240;
+    vidGrabber.width = 160;
+    vidGrabber.height = 120;
 
     camWidth = vidGrabber.width;
     camHeight = vidGrabber.height;
@@ -45,7 +45,7 @@ void ofApp::update(){
 //      vidFrame.setCompression(OF_COMPRESS_SRGB); //No compression method works
                                                    //It just takes a snapshot and then remains constant
         ptrArrPixels = vidFrame.getPixels();
-        ofSleepMillis(15);
+       // ofSleepMillis(15);
         
         char constpixels[frameSize];
         
@@ -59,7 +59,7 @@ void ofApp::update(){
             //for(int i=0; i<frameSize; i++){
 //              tcpServer.sendRawBytes(0, (const char *)(vidFrame.getPixels()), frameSize);
                 tcpServer.sendRawBytes(0, constpixels, frameSize);
-                ofSleepMillis(20);
+                //ofSleepMillis(20);
             //}
         }
         vidFrame.unbind();
