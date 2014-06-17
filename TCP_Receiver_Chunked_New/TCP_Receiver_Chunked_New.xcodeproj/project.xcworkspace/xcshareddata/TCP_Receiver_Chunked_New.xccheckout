@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>8E6B6419-5DA2-48E4-99EF-8099B214ED9C</string>
+	<key>IDESourceControlProjectName</key>
+	<string>TCP_Receiver_Chunked_New</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>DDB17B79-CCDF-4109-A72D-403B819D4CBB</key>
+		<string>https://github.com/WillBMease/Video.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>TCP_Receiver_Chunked_New/TCP_Receiver_Chunked_New.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>DDB17B79-CCDF-4109-A72D-403B819D4CBB</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/WillBMease/Video.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>DDB17B79-CCDF-4109-A72D-403B819D4CBB</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>DDB17B79-CCDF-4109-A72D-403B819D4CBB</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Video</string>
+		</dict>
+	</array>
+</dict>
+</plist>
