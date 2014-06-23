@@ -36,11 +36,11 @@ class ofApp : public ofBaseApp{
         int totalBytesReceived;
         int packetArrFlag;
     
-        char packet[100];
-        char recvdFrame[307200];
+        char packet[256];
+        char recvdFrame[19200];
         unsigned char *usc_frame;
     
         //Counters for loops
-        int i,j,k,l,m,n,o,p,pIndex;
+        int i,j,pIndex;
     
 };
